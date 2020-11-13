@@ -1,0 +1,51 @@
+html{
+    font-family: 'Poppins';
+    margin-top: 20px ;
+}
+
+.head{
+    font-family: 'Poppins';
+    margin-bottom: 20px;
+}
+
+table{
+    font-family: 'Poppins';
+}
+
+thead{
+    background-color: #ECDFEC;
+}
+
+.ndas{
+    float: left;
+}
+
+.img-head{
+    opacity: 50%;
+}
+
+.myImg{
+    height: 50px;
+    width: 50px;  
+    margin: 10px 10px 10px 10px;
+}
+
+img.poster{
+    width: 336px;
+    height: 336px;
+}
+tr td button {
+    border-radius: 4px;
+    border: 0px solid rgb(34, 71, 59) ;
+    background-color: rgb(219, 81, 81);
+    padding: 0px 5px 0px 5px;
+    transition-duration: 0.4s;
+    color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    margin: 0px 2px;
+}
+
+button:hover{
+    opacity: 50% !important;
+    color: black !important;
+}
