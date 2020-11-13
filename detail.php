@@ -12,11 +12,12 @@
 <body>
     <?php
         include('simple_html_dom.php');      
-        $name=$_GET["name"];  
+        $name=$_GET["name"];
         $wiki = "https://pokemondb.net/pokedex/".strtolower($name);
         $html = file_get_html($wiki);
+        $idtop= "tab-basic-" . $_GET["idx"];
 
-        $top=$html->getElementById("tab-basic-1");  
+        $top=$html->getElementById("$idtop");  
             $imglink=$top->children(0)->children(0)->children(0)->children(0)->href;
 
             $vitalTleft=$top->children(0)->children(1)->children(1)->children(0);

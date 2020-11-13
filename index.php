@@ -11,6 +11,7 @@
     
 </head>
 <body>
+
     <?php
         include('simple_html_dom.php');        
         $wiki = "https://pokemondb.net/pokedex/all";
@@ -36,12 +37,15 @@
             <?php
                 foreach ($html->find('table[id=pokedex] tbody tr') as $tr) {
                     $name=$tr->children(1)->children(0)->innertext;
-                    $link='detail.php?name=' . $name;
                     $small=$tr->children(1)->children(2);
                     $natnum=$tr->children(0)->children(1)->innertext;
                     $imgtemp=$tr->children(0)->children(0)->children(0);
                     $imglink=$imgtemp->getAttribute('data-src');
-
+                    
+                    $noint = intval($natnum);
+                    $nostr = strval($noint);
+                    $link='detail.php?name=' . $name . '&idx=' . $nostr;
+                    
                     if(isset($small)){
                         echo "
                         <tr>
@@ -60,6 +64,7 @@
                         </tr>
                         ";
                     }
+
                 }
             ?>
         </tbody>
