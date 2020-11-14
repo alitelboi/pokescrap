@@ -32,18 +32,17 @@
             $trainingtables=$vitalTright->children(0)->children(1);
             $catchRate=$trainingtables->children(0)->children(1)->children(1);      // <td>
             $growthRate=$trainingtables->children(0)->children(4)->children(1);     // <td>
-        
-        // $main=$html->getElementById('main');
-        //     $evol=$html->find('.infocard-list-evo');               // aray elemen anak evol
 
     ?>
 
     <div class="container">
+        <!-- start of title -->
         <h2 class="text-center head">
             <?php echo " $name "; ?>
         </h2>
         <br>
-
+        <!-- end of title -->
+        <!-- start of top section -->
         <div class="row text-center poke-data">
             
             <div class="col-sm-4">
@@ -59,6 +58,7 @@
                         <th>Type</th>
                         <td><?php
                             foreach($type->find('a') as $t){
+                                $atipe=$t->innertext;
                                 echo"
                                 <button class"." btn btn-outline-info".">".strtoupper($t->innertext)."</button>
                                 ";
@@ -179,9 +179,10 @@
             </div>
             
         </div>
-
+        <!-- end of top sectioon -->
+        <!-- start of evolution chart -->
         <h4 class="text-center">Evolution Chart</h4>
-
+        <br>
         <?php
         foreach($html->find('.infocard-list-evo') as $evo){
             $i=0;
@@ -220,14 +221,73 @@
             echo"</div>";   // ahir div.row
 
         }
-        
-
         ?>
-
+        <!-- end of evolution chart -->
+        <!-- start of related poke -->
+        <h4 class="text-center">Recomended Pokemon by Type</h4>
+        <br>
         <div class="row text-center poke-relate">
+            <?php 
+                $typelink="https://pokemondb.net/type/" . strtolower($atipe);
+                // echo "<a target='_blank' href='$typelink'>$typelink</a>";
+                $html_type = file_get_html($typelink);
+                $recom=$html_type->find('div.infocard-list-pkmn-md',0);
 
+                for($j=0;$j<5;$j++){
+                    $arecom_small=$recom->children($j)->children(1)->children(2)->innertext;
+                    $arecom_temp=explode(' ', $arecom_small);
+                    $arecom_temp2=explode('#', $arecom_temp[0]);
+                    
+                    // astaghfirullloh opo iki
+                    $arecom_natnum=$arecom_temp2[0];
+                    
+                    $arecom_name=$recom->children($j)->children(1)->children(0)->plaintext;
+                    $apoke_html=file_get_html("https://pokemondb.net/pokedex/".strtolower($name));
+
+                    $arecom_img=$recom->children($j)->children(0)->children(0)->getAttribute('data-src');
+
+                    
+                    if((int)$arecom_natnum != (int)$_GET['idx']){
+                        echo "
+                        <div class='col text-center'>
+                            <div class=''>
+                                <img class='card-img-top' src='$arecom_img' >
+                                <div class='card-bod'>
+                                    <h5 class='card-title'> $arecom_name </h5>
+                        ";
+                                // if(isset($arecom_small))
+                                //     echo "<small>$arecom_small</small>";
+                        echo"
+                                </div>
+                                <ul class='list-group list-group-flush'>
+                                    <li class='list-group-item'> $arecom_natnum </li>
+                                    <li class='list-group-item'> SPECIES </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        ";
+                    }                
+
+                }
+
+            ?>
         </div>
+        <!-- end of related poke -->
     </div>
     
 </body>
+<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>&copy; Copyright 2020 | build with 
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        by <a href="https://instagram.com/faderik_" target="_blank">Mohammad Faderik</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </html>

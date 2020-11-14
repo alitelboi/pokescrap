@@ -3,6 +3,9 @@ html{
     margin-top: 20px ;
 }
 
+h4{
+    margin-top: 50px !important;
+}
 .head{
     font-family: 'Poppins';
     margin-bottom: 20px;
@@ -48,4 +51,24 @@ tr td button {
 button:hover{
     opacity: 50% !important;
     color: black !important;
+}
+
+.poke-relate{
+    margin-bottom: 50px;
+}
+
+
+footer p{
+    
+    color: #333;
+    padding-top: 30px;
+
+}
+
+footer p i{
+    color: salmon;
+}
+
+svg{
+    color: salmon;
 }
