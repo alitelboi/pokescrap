@@ -17,5 +17,5 @@ Anggota :
 
 
 ## PROBLEMS
-1. Nidoran 029 male
-2. Nidoran 032 female
+1. pokescrap/detail.php?name=Nidoran♀&idx=29 -> https://pokemondb.net/pokedex/nidoran-m
+2. pokescrap/detail.php?name=Nidoran♂&idx=32 -> https://pokemondb.net/pokedex/nidoran-f
