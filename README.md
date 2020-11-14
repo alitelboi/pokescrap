@@ -2,7 +2,7 @@
 
 ##  Topik Web Scraping https://pokemondb.net
 
-Anggota :
+### Anggota :
 1. Mohammad Faderik Izzul Haq     (05111940000023)
 2. Faji
 3. Unknown
@@ -17,7 +17,7 @@ Anggota :
 - Diperbolehkan menggunakan library eksternal.
 - Kalau ada kesulitan boleh nanya admin NCC 😊 
 
-🛠  Topik Web Scraping
+### Ketentuan Web Scraping
 - Amati website https://pokemondb.net 
 - Lakukan scraping untuk memenuhi tugas berikut:
 - Buat Table List Pokemon.
@@ -31,15 +31,9 @@ Anggota :
 - Penilaian utama berasal dari data yang berhasil ditampilkan.
 - Tampilan website bebas. Estetika menjadi nilai tambah.
 
-
-
-
-
-
 ### Created Project at : Thursday, 11 November 2020 ~ 13:36:00
 ### Created Repository at : Friday, 13 November 2020 ~ 11:00:00
 
-
-## PROBLEMS
+### Remaining Problems
 1. pokescrap/detail.php?name=Nidoran♀&idx=29 -> https://pokemondb.net/pokedex/nidoran-m
 2. pokescrap/detail.php?name=Nidoran♂&idx=32 -> https://pokemondb.net/pokedex/nidoran-f
