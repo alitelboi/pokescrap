@@ -33,8 +33,8 @@
             $catchRate=$trainingtables->children(0)->children(1)->children(1);      // <td>
             $growthRate=$trainingtables->children(0)->children(4)->children(1);     // <td>
         
-        $main=$html->getElementById('main');
-            $evol=$main->children(9);               // aray elemen anak evol
+        // $main=$html->getElementById('main');
+        //     $evol=$html->find('.infocard-list-evo');               // aray elemen anak evol
 
     ?>
 
@@ -47,7 +47,7 @@
         <div class="row text-center poke-data">
             
             <div class="col-sm-4">
-                <h4>Pokédex data</h4>
+                <h4>Pokédex Data</h4>
                 <br>
                 <table class="table ">
                 <tbody>
@@ -181,34 +181,48 @@
         </div>
 
         <h4 class="text-center">Evolution Chart</h4>
-        <div class="row text-center poke-evol">
 
-            <?php 
+        <?php
+        foreach($html->find('.infocard-list-evo') as $evo){
             $i=0;
-
-            // $evo_imglink=$evol->children(0)->children(0)->children(0)->children(0)->getAttribute('data-src');
-            // echo "<img src=".$evo_imglink.">" ;
-
-            foreach($evol->find('div') as $evo){
-                $evo_imglink=$evo->children(0)->children(0)->children(0)->getAttribute('data-src');
-                $panah=$evol->find('span', 0);
+            echo "<div class='row text-center poke-evol'>";     // awal div.row
+            
+            foreach($evo->find('div') as $divimg){
+                $evo_imglink=$divimg->children(0)->children(0)->children(0)->getAttribute('data-src');
+                $evo_detail=$divimg->children(1);           // span detail
+                $panah=$evo->find('.infocard-arrow', $i);
 
                 echo "
                 <div class='col'>
-                    <img src=".$evo_imglink.">
-                </div>";
-
-                echo"
-                <div class='col'>
-                    <br><br> >>>>>                    
+                    <img src='$evo_imglink'></img>
+                    <br>
+                    $evo_detail->outertext
                 </div>
+                
+                ";
 
-                " ;
+                if(isset($panah)){
+                    echo "
+                    <div class='col'>
+                        <br>
+                        <br>
+                        >>>>
+                        <br>
+                        $panah
+                    </div>
+                    
+                    ";
+                }
+                $i++;
+
             }
             
+            echo"</div>";   // ahir div.row
 
-            ?>
-        </div>
+        }
+        
+
+        ?>
 
         <div class="row text-center poke-relate">
 
