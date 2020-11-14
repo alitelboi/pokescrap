@@ -4,8 +4,8 @@
 
 ### Anggota :
 1. Mohammad Faderik Izzul Haq     (05111940000023)
-2. Faji
-3. Unknown
+2. M Fajri Davyza Chaniago        (05111940000180)
+3. Marsa Aushaf Rafi'             (05111940000220)
 
 ### Ketentuan Umum
 - Buat kelompok yang terdiri dari 3 orang.
@@ -37,3 +37,19 @@
 ### Remaining Problems
 1. pokescrap/detail.php?name=Nidoran♀&idx=29 -> https://pokemondb.net/pokedex/nidoran-m
 2. pokescrap/detail.php?name=Nidoran♂&idx=32 -> https://pokemondb.net/pokedex/nidoran-f
+3. split evolution pikachu -> https://pokemondb.net/pokedex/pikachu
+
+### HOW TO RUN
+- clone https://github.com/botfade/pokescrap.git
+- install xampp https://www.apachefriends.org/xampp-files/7.4.11/xampp-windows-x64-7.4.11-0-VC15-installer.exe
+- open xampp
+- start apache server
+- copy hasil clone github ke instalasi xampp C:\xampp\htdocs
+- buka di browser : localhost/pokescrap/index.php
+
+### HOW TO EDIT
+- open vscode
+- file > open folder > pilih lokasi folder pokescrap
+- edit index.php : tabel pokemon seluruhnya
+- edit detail.php : detail pokemon dari index.php yang di klik
+- edit style.css : style CSS dari kedua halaman index dan detail
