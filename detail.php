@@ -234,19 +234,28 @@
                 $recom=$html_type->find('div.infocard-list-pkmn-md',0);
 
                 for($j=0;$j<5;$j++){
-                    $arecom_small=$recom->children($j)->children(1)->children(2)->innertext;
+                    // get national number
+                    $arecom_small=$recom->children($j)->children(1)->last_child()->innertext;
                     $arecom_temp=explode(' ', $arecom_small);
                     $arecom_temp2=explode('#', $arecom_temp[0]);
-                    
-                    // astaghfirullloh opo iki
-                    $arecom_natnum=$arecom_temp2[0];
-                    
-                    $arecom_name=$recom->children($j)->children(1)->children(0)->plaintext;
-                    $apoke_html=file_get_html("https://pokemondb.net/pokedex/".strtolower($name));
+                    $arecom_natnum=$arecom_temp2[1];
 
+                    // get name
+                    $arecom_name=$recom->children($j)->children(1)->children(0)->plaintext;
+
+                    // get detail poke page
+                    $arecom_link="https://pokemondb.net/pokedex/".strtolower($arecom_name);
+                    $apoke_html=file_get_html($arecom_link);
+                    
+                    // get species
+                    $id_tab="tab-basic-".(int)$arecom_natnum;
+
+                    $arecom_species=$apoke_html->find("#$id_tab", 0)->children(0)->children(1)->children(1)->children(0)->children(2)->children(1)->innertext;
+                    // $arecom_species=$apoke_html->getElementById("$id_tab");
+                    
+                    // get image
                     $arecom_img=$recom->children($j)->children(0)->children(0)->getAttribute('data-src');
 
-                    
                     if((int)$arecom_natnum != (int)$_GET['idx']){
                         echo "
                         <div class='col text-center'>
@@ -261,13 +270,13 @@
                                 </div>
                                 <ul class='list-group list-group-flush'>
                                     <li class='list-group-item'> $arecom_natnum </li>
-                                    <li class='list-group-item'> SPECIES </li>
+                                    <li class='list-group-item'> $arecom_species </li>
                                 </ul>
                             </div>
                         </div>
                         
                         ";
-                    }                
+                    }     
 
                 }
 
@@ -285,7 +294,7 @@
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                         </svg>
-                        by <a href="https://instagram.com/faderik_" target="_blank">Mohammad Faderik</a></p>
+                        by <a href="https://instagram.com/faderik_" target="_blank">NCC Team</a></p>
                 </div>
             </div>
         </div>
