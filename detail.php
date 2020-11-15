@@ -32,6 +32,10 @@
             $trainingtables=$vitalTright->children(0)->children(1);
             $catchRate=$trainingtables->children(0)->children(1)->children(1);      // <td>
             $growthRate=$trainingtables->children(0)->children(4)->children(1);     // <td>
+        
+            $stat_body=$top->children(1)->children(0)->children(2)->children(0)->children(0);    // tbody
+            $stat_foot=$top->children(1)->children(0)->children(2)->children(0)->children(1);    // tfoot
+
 
     ?>
 
@@ -104,71 +108,117 @@
             </div>
 
             <div class="col-sm-4">
+                <?php
+                $hp=$stat_body->children(0)->children(1);           // <td>
+                $hp_min=$stat_body->children(0)->children(3);
+                $hp_max=$stat_body->children(0)->children(4);
+                $hp_width=$stat_body->children(0)->children(2)->children(0)->getAttribute('style');
+                
+                $atk=$stat_body->children(1)->children(1);          // <td>
+                $atk_min=$stat_body->children(1)->children(3);
+                $atk_max=$stat_body->children(1)->children(4);
+                $atk_width=$stat_body->children(1)->children(2)->children(0)->getAttribute('style');
+
+                $def=$stat_body->children(2)->children(1);          // <td>
+                $def_min=$stat_body->children(2)->children(3);
+                $def_max=$stat_body->children(2)->children(4);
+                $def_width=$stat_body->children(2)->children(2)->children(0)->getAttribute('style');
+
+                $sp_atk=$stat_body->children(3)->children(1);       // <td>
+                $sp_atk_min=$stat_body->children(3)->children(3);
+                $sp_atk_max=$stat_body->children(3)->children(4);
+                $sp_atk_width=$stat_body->children(3)->children(2)->children(0)->getAttribute('style');
+
+                $sp_def=$stat_body->children(4)->children(1);       // <td>
+                $sp_def_min=$stat_body->children(4)->children(3);
+                $sp_def_max=$stat_body->children(4)->children(4);
+                $sp_def_width=$stat_body->children(4)->children(2)->children(0)->getAttribute('style');
+
+                $speed=$stat_body->children(5)->children(1);        // <td>
+                $speed_min=$stat_body->children(5)->children(3);
+                $speed_max=$stat_body->children(5)->children(4);
+                $speed_width=$stat_body->children(5)->children(2)->children(0)->getAttribute('style');
+
+                $total = $stat_foot->children(0)->children(1)->innertext;      //<b>
+                
+                ?>
+
+
                 <h4>Base Stats</h4>
                 <br>
                 <table class="vitals-table table">
                 <tbody>
                     <tr>
                         <th>HP</th>
-                        <td class="cell-num">45</td>
+                        <?=$hp ?>
                         <td class="cell-barchart">
                             <div class="progress" style="width: 100px">
-                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" style="<?=$hp_width?>" ></div>
                             </div>
                         </td>
-                        <td class="cell-num">200</td>
-                        <td class="cell-num">294</td>
+                        <?=$hp_min ?>
+                        <?=$hp_max ?>
                     </tr>
                     <tr>
                         <th>Attack</th>
-                        <td class="cell-num">49</td>
+                        <?=$atk ?>
                         <td class="cell-barchart">
-                        <div style="width:27.22%;" class="barchart-bar barchart-rank-2 "></div>
+                            <div class="progress" style="width: 100px">
+                                <div class="progress-bar" style="<?=$atk_width?>" ></div>
+                            </div>
                         </td>
-                        <td class="cell-num">92</td>
-                        <td class="cell-num">216</td>
+                        <?=$atk_min ?>
+                        <?=$atk_max ?>
                     </tr>
                     <tr>
                         <th>Defense</th>
-                        <td class="cell-num">49</td>
+                        <?=$def ?>
                         <td class="cell-barchart">
-                        <div style="width:27.22%;" class="barchart-bar barchart-rank-2 "></div>
+                            <div class="progress" style="width: 100px">
+                                <div class="progress-bar" style="<?=$def_width?>" ></div>
+                            </div>
                         </td>
-                        <td class="cell-num">92</td>
-                        <td class="cell-num">216</td>
+                        <?=$def_min ?>
+                        <?=$def_max ?>
                     </tr>
                     <tr>
                         <th>Sp. Atk</th>
-                        <td class="cell-num">65</td>
+                        <?=$sp_atk ?>
                         <td class="cell-barchart">
-                        <div style="width:36.11%;" class="barchart-bar barchart-rank-3 "></div>
+                            <div class="progress" style="width: 100px">
+                                <div class="progress-bar" style="<?=$sp_atk_width?>" ></div>
+                            </div>
                         </td>
-                        <td class="cell-num">121</td>
-                        <td class="cell-num">251</td>
+                        <?=$sp_atk_min ?>
+                        <?=$sp_atk_max ?>
                     </tr>
                     <tr>
                         <th>Sp. Def</th>
-                        <td class="cell-num">65</td>
+                        <?=$sp_def ?>
                         <td class="cell-barchart">
-                        <div style="width:36.11%;" class="barchart-bar barchart-rank-3 "></div>
+                            <div class="progress" style="width: 100px">
+                                <div class="progress-bar" style="<?=$sp_def_width?>" ></div>
+                            </div>
                         </td>
-                        <td class="cell-num">121</td>
-                        <td class="cell-num">251</td>
+                        <?=$sp_def_min ?>
+                        <?=$sp_def_max ?>
                     </tr>
                     <tr>
                         <th>Speed</th>
-                        <td class="cell-num">45</td>
+                        <?=$speed ?>
                         <td class="cell-barchart">
-                        <div style="width:25.00%;" class="barchart-bar barchart-rank-2 "></div>
+                            <div class="progress" style="width: 100px">
+                                <div class="progress-bar" style="<?=$speed_width?>" ></div>
+                            </div>
                         </td>
-                        <td class="cell-num">85</td>
-                        <td class="cell-num">207</td>
+                        <?=$speed_min ?>
+                        <?=$speed_max ?>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
                     <th>Total</th>
-                    <td class="cell-total"><b>318</b></td>
+                    <td class="cell-total"><?=$total?></td>
                     <th class="cell-barchart"></th>
                     <th>Min</th>
                     <th>Max</th>
@@ -286,17 +336,12 @@
     </div>
     
 </body>
-<footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <p>&copy; Copyright 2020 | build with 
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                        </svg>
-                        by <a href="https://instagram.com/faderik_" target="_blank">NCC Team</a></p>
-                </div>
-            </div>
-        </div>
+    <footer class="text-center">
+        <p>&copy; Copyright 2020 | build with 
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+            </svg>
+            by <a href="https://instagram.com/faderik_" target="_blank">NCC Team</a>
+        </p>
     </footer>
 </html>
