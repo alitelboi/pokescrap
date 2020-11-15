@@ -38,6 +38,7 @@
 1. pokescrap/detail.php?name=Nidoran♀&idx=29 -> https://pokemondb.net/pokedex/nidoran-m
 2. pokescrap/detail.php?name=Nidoran♂&idx=32 -> https://pokemondb.net/pokedex/nidoran-f
 3. split evolution pikachu -> https://pokemondb.net/pokedex/pikachu
+4. split evolution vileplum http://localhost/scraping/pokescrap/detail.php?name=Vileplume&idx=45
 
 ### HOW TO RUN
 - clone https://github.com/botfade/pokescrap.git
