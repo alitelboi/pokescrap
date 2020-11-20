@@ -34,12 +34,6 @@
 ### Created Project at : Thursday, 11 November 2020 ~ 13:36:00
 ### Created Repository at : Friday, 13 November 2020 ~ 11:00:00
 
-### Remaining Problems
-1. pokescrap/detail.php?name=Nidoran♀&idx=29 -> https://pokemondb.net/pokedex/nidoran-m
-2. pokescrap/detail.php?name=Nidoran♂&idx=32 -> https://pokemondb.net/pokedex/nidoran-f
-3. split evolution pikachu -> https://pokemondb.net/pokedex/pikachu
-4. split evolution vileplum http://localhost/scraping/pokescrap/detail.php?name=Vileplume&idx=45
-
 ### HOW TO RUN
 - clone https://github.com/botfade/pokescrap.git
 - install xampp https://www.apachefriends.org/xampp-files/7.4.11/xampp-windows-x64-7.4.11-0-VC15-installer.exe
